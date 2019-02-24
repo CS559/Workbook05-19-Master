@@ -21,19 +21,21 @@
 <h2 id="box-1-the-decastlejau-construction">Box 1: The DeCastlejau Construction</h2>
 <p>Suppose we have a Bezier curve defined by n points. I'll just number the points 0,1,2, ... It doesn't matter what dimension the points are in.</p>
 <p>Suppose we want to evaluate the curve for a parameter value u, where
-<script type="math/tex"> 0 \leq u \leq 1 </script>. What we do is:
-1. Between every consecutive pair of points, linearly interpolate u of the way between the beginning and end.
-2. If there is more than 1 point left, repeat the process with the new set of points.</p>
+<script type="math/tex"> 0 \leq u \leq 1 </script>. What we do is:</p>
+<ol>
+<li>Between every consecutive pair of points, linearly interpolate u of the way between the beginning and end.</li>
+<li>If there is more than 1 point left, repeat the process with the new set of points.</li>
+</ol>
 <p>If we start with 2 points, this is a line segment (linear interpolation between the points).</p>
 <p>If we start with 3 points, we first interpolate between points 0 and 1, and between 1 and 2. This gives us 2 new points (call them 01 and 12). Then we interpolate between 01 and 12, to get point 0112, which is our answer.</p>
 <p>If we start with 4 points, we first interpolate between points 0 and 1, 1 and 2, and between 2 and 3. This gives us 3 new points (call them 01, 12 and 23). Then we interpolate between these to get 0112 and 1223. Then we interpolate these two points to get the final answer.</p>
 <p>Notice that we do a sequence of linear interpolations.</p>
-<p>Here is an animation where you can set U to see what the construction does for 2,3,4 and 5 points.</p>
+<p>Here is an animation where you can set u to see what the construction does for 2,3,4 and 5 points.</p>
 <canvas width="600px" height="200px" id="box1"></canvas>
 
 <p>You can see me doing the algorithm on the white board in videos <a href="https://mediaspace.wisc.edu/media/1_ht8bd4ii">showing the algorithm for 3 points (a second degree curve)</a>
 and <a href="https://mediaspace.wisc.edu/media/1_yfe2pejr">showing the algorithm for 4 points (a third degree curve)</a>.</p>
-<p>In this box you can drag the points around to see what happens as the points move. Use shift click to add points (they add at the end of the list), and ctrl-click to remove points.</p>
+<p>In this box you can drag the points around to see what happens as the points move. Use shift click to add points (they add at the end of the list), and ctrl-click (or meta-click on a Mac) to remove points.</p>
 <canvas width="400px" height="400px" id="box1b"></canvas>
 
 </div>
@@ -60,7 +62,7 @@ and <a href="https://mediaspace.wisc.edu/media/1_yfe2pejr">showing the algorithm
 <p>As an example, suppose we have a Bezier curve with control points <script type="math/tex">p_0, p_1, p_2</script> (as in the previous box). If we divide the curve at value u, we get two new curves. One with points (<script type="math/tex">p_0, p_{01}, p_{0112}</script>) and one with points (<script type="math/tex">p_{0112},p_{12},p_{2}</script>).</p>
 <p>Figure 15.17 in Foundations of Computer Graphics shows this for a cubic (4 point) Bezier curve for value u=.5. The book's notation uses A, B, C and D for the points, so the old curve is (A,B,C,D) and the new curves are (A,AB,AC,AD) and (AD,BD,CD,D). Here it is again:</p>
 <p><img alt="DeCastlejau cutting of a cubic" src="Images/decastlecut.png" /></p>
-<p>I was going to ask you to implement this on the next page, but instead, it will be a question.</p>
+<p>I was going to ask you to implement this on the next page, but decided not to. Make sure you understand how to split Bezier curves - it makes for a good exam question.</p>
 <p>Being able to divide Bezier curves into smaller pieces is really useful in order to implement algorithms to process them. We can start with a Bezier curve and divide it into smaller pieces until those pieces are small enough that we can approximate them with lines (or pixels). This gives effective algorithms for drawing them smoothly, intersecting them, etc.</p>
 </div>
 <div class="sumbox">
