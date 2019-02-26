@@ -99,8 +99,8 @@ function box2() {
 }
 
 let triPt1 = [10,10];
-let triPt2 = [10+120,10+25];
-let triPt3 = [10,10+25];
+let triPt2 = [10+120,10+50];
+let triPt3 = [10,10+50];
 
 function myTri(t) {
          if (t<1) return lerpPt(triPt1,triPt2,t);
@@ -127,8 +127,8 @@ function boxex() {
         context.lineWidth = 2;
         context.beginPath();
         context.moveTo(10,10);
-        context.lineTo(10+120,10+25);
-        context.lineTo(10,10+25);
+        context.lineTo(10+120,10+50);
+        context.lineTo(10,10+50);
         context.closePath();
         context.stroke();
 
