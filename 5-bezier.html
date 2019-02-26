@@ -54,7 +54,7 @@
 <h2 id="box-3-bezier-curves-in-canvas">Box 3: Bezier Curves in Canvas</h2>
 <p>The HTML Canvas API provides both quadratic and cubic Bezier curves. It allows you to use these curves as pieces of longer paths.</p>
 <p>One thing that is slightly surprising about Bezier segments in Canvas is that they take one fewer control point as an argument as the curve needs. The first control point is always the most recent pen position. So, if you want to give the four points of a Bezier segment, you need to do a <code>moveTo</code> first to get that first point:</p>
-<div class="codehilite"><pre><span></span><span class="nx">context</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">ax</span><span class="p">,</span><span class="nx">by</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="nx">context</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">ax</span><span class="p">,</span><span class="nx">ay</span><span class="p">);</span>
 <span class="nx">context</span><span class="p">.</span><span class="nx">bezierCurveTo</span><span class="p">(</span><span class="nx">bx</span><span class="p">,</span><span class="nx">by</span><span class="p">,</span><span class="nx">cx</span><span class="p">,</span><span class="nx">cy</span><span class="p">,</span><span class="nx">dx</span><span class="p">,</span><span class="nx">dy</span><span class="p">);</span>
 </pre></div>
 
